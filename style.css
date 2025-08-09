@@ -1,0 +1,31 @@
+#atitle { display: flex;justify-content: center;}
+#atitle>div{ font-size: 50px; text-align: center;}
+
+#abar
+{
+    display: flex;align-items: center;overflow: auto;padding: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#abar>*{margin-right: 5px;margin-bottom: 5px; border-radius: 10px; padding-right: 10px;display: flex;white-space: nowrap;}
+
+#abar>div>:first-child
+{
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+#abar>span { height: 10px;  }
+
+#about-content
+{
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#abar::-webkit-scrollbar 
+{
+    display: none;
+}

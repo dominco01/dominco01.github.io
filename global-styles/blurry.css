@@ -1,0 +1,17 @@
+.blurry, .blurry-box>*
+{
+    filter: blur(4px); 
+    transition: filter ease-in-out 0.3s;
+}
+
+.blurry:hover, .blurry-box>*:hover
+{
+    filter:blur(0px);
+}
+
+@media only screen and (max-width: 600px) {
+    .blurry, .blurry-box>*
+    {
+        filter:none;
+    }
+}

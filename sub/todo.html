@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../global-styles/style.css">
+    <link rel="stylesheet" href="styles/todo.css">
+    <script src="scripts/random.js"></script>
+    <script>
+        function miniView()
+        {
+            document.getElementById("buttons-place").remove();
+            document.body.style.height="auto";
+            document.getElementById("box").style.flexDirection="column";
+
+            let ch = document.getElementById("box").children;
+            for(let i =2;i<ch.length;i++) ch[2].remove();
+            ch[0].style.display="block";
+            ch[1].style.display="block";
+
+            let good;
+            let random = new Random();
+
+            //TO DO
+            let childs = document.getElementById("box").children[0].children[1].children;
+            if(childs.length!==0)
+            {
+                do good = random.get(childs.length);
+                while( childs[good].innerHTML == "" );
+                for(let i =0;i<good;i++) {  childs[0].remove(); }
+                while(childs.length>1) {  childs[1].remove(); }
+            }
+            
+
+            //TO THINK
+            childs = document.getElementById("box").children[1].children[1].children;
+            if(childs.length!==0)
+            {
+                do good = random.get(childs.length);
+                while( childs[good].innerHTML == "" );
+                for(let i =0;i<good;i++) {  childs[0].remove(); }
+                while(childs.length>1) {  childs[1].remove(); }
+            }
+            
+        }
+
+        function load()
+        {
+            if(frameElement.getAttribute("miniView")) miniView();
+        }
+    </script>
+
+    <!--BUTTONS script-->
+    <script> 
+        function display(index)
+        {
+            let elem = document.getElementById("box").children;
+            for(let i = 0;i<elem.length;i++)
+            {
+                if(i!=index) elem[i].style.display="none";
+                else elem[i].style.display="block";
+            }
+        }
+        function more(index)
+        {
+            let elem = document.getElementById("more").children;
+            for(let i = 0;i<elem.length;i++)
+            {
+                if(i!=index) elem[i].style.display="none";
+                else elem[i].style.display="block";
+            }
+        }
+
+        function active(index)
+        {
+            let elem = document.getElementById("buttons").children[0].children;
+            for(let i = 0;i<elem.length;i++)
+            {
+                if(i!=index) elem[i].classList.remove("active-color");
+                else elem[i].classList.add("active-color");
+            }
+        }
+
+        function activeMore(row,index)
+        {
+            let elem = document.getElementById("more").children[row].children;
+            for(let i = 0;i<elem.length;i++)
+            {
+                if(i!=index) elem[i].classList.remove("active-color");
+                else elem[i].classList.add("active-color");
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px;" onload="load()">
+
+<div id="buttons-place">
+    <div id="buttons" class="primary-color" >
+        <div id="flex" class="secondary-color-box">
+            <button onclick="more(0);display(-1);active(0);activeMore(0,-1);" >TO</button>
+            <button onclick="more(-1);display(3);active(1);">W/</button>
+            <button onclick="more(1);display(-1); active(2);activeMore(1,-1);">IF</button>
+        </div>
+        <div id="more" >
+            <div id="flex" class="secondary-color-box">
+                <button onclick="display(0);activeMore(0,0);">WATCH.</button>
+                <button onclick="display(2);activeMore(0,1);">GO.</button>
+                <button onclick="display(1);activeMore(0,2);">BUY.</button>
+            </div>
+            <div id="flex" class="secondary-color-box">
+                <button onclick="display(4);activeMore(1,0);">I'M BORED</button>
+                <button onclick="display(5);activeMore(1,1);">WE'RE BORED</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="box" class="primary-color-box">
+    <div>
+    <div id="head">TO WATCH.</div>
+    <div id="body">
+    </div>
+
+    <div id="head">TO WATCH. AGAIN.</div>
+    <div id="body">
+        <div>The Social Network</div>
+        <div>Once upon a time in hollywood</div>
+        <div>Sao film</div>
+        <div>Taylor Swift</div>
+        <div>Squid Game</div>
+        <div>Bakugan</div>
+        <div>Arcane</div>
+        <div>Terminal 😭😭</div>
+        <div>Dom Gucci</div>
+        <div>Focus</div>
+        <div>Glass Onion</div>
+    </div>
+    </div>
+    
+    <div >
+    <div id="head">TO BUY.</div>
+    <div id="body">
+    </div>
+    </div>
+    
+    <div >
+    <div id="head">TO GO.</div>
+    <div id="body">
+        <div>wwa (hangar 646 , nagrywki)</div>
+        <div>ac hotel</div>
+        <div>london</div>
+        <div>madrid</div>
+        <div>oslo</div>
+        <div>dubai</div>
+        <div>Cracow Center Living</div>
+    </div>
+    </div>
+    
+    
+    <div >
+    <div id="head">WITH ...</div>
+    <div id="body">
+        <div>Fam - spontaniczne filmy</div>
+        <div></div>
+        <div>Oliwia - Obraz</div>
+        <div>Oliwia - Ksiazka filozoficzna</div>
+        <div>Oliwia - Ice inside?</div>
+        <div></div>
+        <div>Michal - "hey sorry can i ask u smth, id like to go to the main square..."</div>
+        <div>Michal - randomowe pytania na ulicy - polska czy francja?? (i tak z fleshem do ludzi) (ig content)</div>
+        <div>Michal - Lemon fitness?</div>
+        <div></div>
+        <div>Me - czytanie, rozmyslanie nad wiselka</div>
+        <div></div>
+        <div>Who? - Lemon Fitness</div>
+        <div>Who? - Sztokholm, Macha Latte</div>
+        <div>Who? - noc w krk hotel</div>
+        <div>Who? - gojump</div>
+        <div>Who? - Bangee</div>
+        <div>Who? - Teatr</div>
+    </div>
+    </div>
+
+    <div >
+    <div id="head">IF I'M BORED.</div>
+    <div id="body">
+        <div>------ BEST ------</div>
+        <div>Unbelivable stories.</div>
+        <div>Teksty z bg brain . wyciszenie.</div>
+        <div>------ PAGES ------</div>
+        <div>Etam.com</div>
+        <div><a href="https://www.facebook.com/groups/1509703095953716" target="_blank">KLASA D</a></div>
+        <div>Wiki</div>
+        <div>Apple.com</div>
+        <div>Google Earth</div>
+        <div>Forbes (Billionairs)</div>
+        <div>The Useless Web</div>
+        <div>KickStarter</div>
+        <div>TedTalks</div>
+        <div>Dall-E mini</div>
+        <div>Twitch & Fortnite Events</div>
+        <div>Scripts of watched movies (Gucci,Wallstreet)</div>
+        <div>----- /YOUTUBE -----</div>
+        <div>Clips IShowSpeed Famous</div>
+        <div>David Dobrik</div>
+        <div>Doji Doj</div>
+        <div>The Hollywood Fix</div>
+        <div>Margot Robbie Behind The Scenes</div>
+        <div>---- OTHERS ----</div>
+        <div>Watch old discs (Photos/Partition) (i segregacja)</div>
+        <div>Famous movie script - i zagrac do lustra ;D</div>
+        <div>1209 Summaries</div>
+    </div>
+    </div>
+
+    <div >
+    <div id="head">IF WE'RE BORED.</div>
+    <div id="body">
+        <div>Znajdz rzecz w my POV. Pytaj az nie zgadniesz.</div>
+        <div>One Take Video</div>
+        <div>Oszukiwanie Zmyslow</div>
+        <div>Rysowanie - zagienta kartka</div>
+        <div>15min game challenge</div>
+        <div>Mroczne Historie</div>
+        <div>To samo slowo challenge</div>
+        <div>Question only challenge,(Hej? Jak to? Co jak to? ...)</div>
+        <div>Poker</div>
+        <div>Mowisz prawdę o drugiej osobie, a ona to potwierdza albo nie</div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

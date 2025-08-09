@@ -1,0 +1,17 @@
+#box
+{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding:20px;
+}
+
+#box>div
+{
+    width:fit-content;
+    white-space: nowrap;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,73 @@
+/*CONTENT*/
+body{
+    margin: 10px;
+}
+
+#interests
+{
+    display: flex;
+    border-radius: 10px 10px 0px 0px;
+}
+
+/*LEFT CONTENT*/
+
+#box
+{
+    font-size: 20px;
+    border-radius: 10px 10px 0px 0px;
+    height: 1500px;
+    padding: 10px;
+}
+
+#starts0>*
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+#starts>*
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.grabbable-box>div:hover
+{
+    max-width: 96px;
+    max-height: 96px;
+    border: white 2px solid;
+}
+
+#box>*
+{
+    display: flex;
+}
+#box>*>*
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 5px;
+}
+#ends{font-size: 17px;}
+#ends>div>div
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+    #interests
+    {
+        display: none;
+    }
+    body{padding: 0;margin:0;}
+    body::after
+    {
+        content:"MOBILE NOT SUPPORTED FOR NOW :(.";
+    }
+}

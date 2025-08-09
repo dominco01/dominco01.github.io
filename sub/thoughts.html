@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessence</title>
+    <link rel="stylesheet" href="../global-styles/style.css">
+    <link rel="stylesheet" href="styles/thoughts.css">
+    <script src="scripts/random.js"></script>
+    <script>
+        var lastelem = null;
+        function display(elem)
+        {
+            if(lastelem) lastelem.children[0].style.display = "none";
+            if(lastelem!=elem)
+            {
+                elem.children[0].style.display = "block";
+                lastelem = elem;
+            }
+            else lastelem = null;
+        }
+
+        //---
+
+        function removeChildsRandom(id,depth=0)
+        {
+            let childs = document.getElementById(id).children;
+            for(let i =0;i<depth;i++) childs = childs[0].children;
+
+            let random = new Random();
+            let goodChild = random.get(childs.length);
+            for(let i =0;i<goodChild;i++) {  childs[0].remove();   }
+            while(childs.length>1) {  childs[1].remove(); }
+        }
+
+        function miniView()
+        {
+            document.getElementById("imgs").remove();
+            document.getElementById("ints").remove();
+            document.getElementById("ints2").remove();
+            removeChildsRandom("box");
+            removeChildsRandom("box",1);
+            removeChildsRandom("box",2);
+
+            document.getElementById("box").children[0].children[0].children[0].children[0].style.display = "block";
+        }
+        
+        //---
+
+        function load()
+        {
+            if(frameElement.getAttribute("miniView")) 
+            {
+                miniView();
+            }
+            else
+            {
+                let c = document.getElementById("box").children;
+                for(let i =0;i<c.length;i++)
+                {
+                    let cc = c[i].children;
+                    for(let j =0;j<cc.length;j++)
+                    {
+                        let ccc = cc[j].children;
+                        for(let k =0;k<ccc.length;k++)
+                        {
+                            ccc[k].addEventListener('click',function(){ display(ccc[k])});
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="load();" style="padding: 20px;">
+
+    <!--OD DOLU ZAPISUJEMY-->
+
+    <div id="fav" style="border-radius: 20px;margin: 5px; padding: 20px;display: flex;align-items: center;overflow-x: scroll;" class="primary-color noscroll">
+        <div>REMEMBER</div>
+        <div class="secondary-color" style="white-space: nowrap; padding: 10px;border-radius:10px; width: max-content;margin-left: 20px;">Why? ⭐</div>
+        <div class="secondary-color" style="white-space: nowrap; padding: 10px;border-radius:10px; width: max-content;margin-left: 20px;">Dont A2Q ⭐</div>
+        <div class="secondary-color" style="white-space: nowrap; padding: 10px;border-radius:10px; width: max-content;margin-left: 20px;">Gestures ⭐</div>
+    </div>
+
+    <div class="primary-color-box" id="box">
+    <div>4NEW
+        <div class="secondary-color-box">
+            <div>PLAN B ⭐⭐⭐<div>Jak masz plan B, to znacznie latwiej jest prosic cos od kogos</div> </div>
+        </div>
+    </div>
+    <div>4DESSENCE
+        <div class="secondary-color-box">
+            <div>Who am i?<div> Po to, zebym nie zapomnial KIM JESTEM.<br>Uporzadkowanie spraw pozwala ogarnac calego siebie. <br>Bede tym wszystkim co napisze w aplikacji; nic dodac, nic ujac...</div> </div>
+            <div>Summary <div> Podsumowanie i spisywanie rzeczy,wydarzen,rozdzialow jest bardzo istotne.<br> W czasach, gdy dostarczamy sobie tyle contentu, potrzebujemy chwili na przetworzenie informacji oraz wyciagniecie wnioskow.</div></div>
+            <div>Quick Plan<div>Podsumowanie -> wnioski -> merge pomyslow albo sciezka od jednego ...</div> </div>
+            <div>Working on! List<div>- kontrolujac stan przebiegu zadan, nie musisz sie skupiac i dokanczac jednego zeby zaczac drugie.</div> </div>
+        </div>
+    </div>
+
+    <div>4PROJECTS
+        <div class="secondary-color-box">
+            <div>~ Elon Musk ⭐ <div>Operuję w fizycznym podejściu do analizy. Sprowadzasz rzeczy do pierwszych zasad lub fundamentalnych prawd w określonej dziedzinie, a następnie zaczynasz rozumować.</div> </div>
+            <div>~ Dietrich ⭐<div>Typy kreatywnosci: rozwazna/spontaniczna & emocjonalna/poznawcza</div> </div>
+            <div>~ Masny<div>Ambicja jest dobra, a chciwosc prowdzi do wszystkiego co dzisiaj powiedzilam (<a id="footer" href="https://www.youtube.com/watch?v=pbikR7jvzR4" target="_blank">o oglupianiu spoleczenstwa</a>). </a></div> </div>
+            <div>~ The Playlist <div>[O Programowaniu] Z brzydkiego, chaotycznego swiata, w ktorym zyjemy, powstaje cos doskonalego.</div> </div>
+            <div>~ od Kryptografii<div>Jak to stary Jenkins od kryptografii powiedzial "w zyciu nie ma miejsca na bledy, nie zabezpieczysz doskonale systemu i ktos znajdzie wtyk i wykradnie caly twoj dobytek"</div> </div>
+            <div>~ Elon Musk 2 ⭐⭐ <div>Juz jestesmy cyborgami. Twoj telefon i komputer sa twoim przedluzeniem, chociaz interfejs wymaga uzycia ruchow palcow lub mowy, ktore sa bardzo wolne.</div></div>
+            
+        </div>
+        <div class="secondary-color-box">
+            <div>o Elon Musk 2<div>Programici Front-End to tacy translatorzy. Uzytkownikom przetlumaczaja jezyk sprzetowy, zapewniaja wygode i przejrzystosc.</div> </div>
+            <div>Your Mind<div>To co wydaje sie proste i intuicyjne jest w wiekszosci maxem co ludzkosc wymyslila</div> </div>
+            <div>Studies Work⭐<div>Studia staja sie bezsensowne, gdy sam chcesz cos tworzyc na boku... zadania staja sie malutkie w porownaniu do twoich celi.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>TRUTH ⭐<div>1. Poznac prawde 2. Wysunac wnioski</div> </div>
+            <div>Cel?<div>Trzeba ludzi czyms zajac, dac im cel. Cos co zrobia z przyjemnoscia po ciezkim dniu w pracy. A przy okazji zaplaca za to...</div> </div>
+            <div>Creativity<div>Zacznij od malych krokow kreatywnosci. Zobacz ile to szczescia daje, a nastepnie podwyzszaj poprzeczke.</div> </div>
+            <div>SuperPosition ⭐<div>Dopoki nie zdefiniujesz swoich dzialan, znajdujesz sie w superpozycji *v*  (Pomysly nie inspirowane nikim, abstrakcja, tak jakby od zera)</div> </div>
+            <div>This Moment<div>Ten moment kiedy otwierasz szeroko oczy, przyspiesza ci tetno, wstajesz z lozka i juz wiesz ze to jest przelom, cos naprawde genialnego. Niesamowite uczucie.</div> </div>
+            <div>BG Brain<div>Twoj mozg potrafi w backgroundzie rozwiazywac problemy.<br> Daj mu czasem szanse i czas, jesli ci sie z czyms nie spieszy.</div> </div>
+            <div>BG Brain 2<div>Mozg doskonale radzi sobie z przetwarzaniem informacji w tle - czasem lepiej na nim polegac niz swiadomej logice.</div> </div>
+            <div>Framework<div>Framworki to obuduwki, swiaty, w ktorym nie mozna cheatowac. A jesli mozna to to nie spoko framework.</div> </div>
+            <div>2nd Earth<div>Na innej ziemi tez jest masa gier, strzelam ze to nie szachy ani kolko i krzyzyk...<br>a to oznacza ze jestesmy w stanie wymyslic jeszcze mase ciekawych gier. Wiec do dziela!</div> </div>
+            <div>Remember<div>Pamietaj co chcesz przekazac.Jak zwatpisz w swoj projekt to przypomnij sobie pierwsza mysl o nim.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>GAMES<div>System turniei calkiem daje rade. Motywuje graczy i niezle ich sortuje. System rankingowy tez ciekawy. Podstawa uzalezniajacych gier.</div> </div>
+            <div>MINI-GAMES<div>Zacznij od niewielkich, prostych aplikacji. Czasem poprzeczka jest tak wysoko ze mozg tego nie pojmie przy programowaniu. Wiec pomalu, male aplikacje tez potrafia byc wielkie!</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>MUSIC<div>Wycisz sie i wsluchaj sie w siebie. Daj sie poniesc a wyjdzie super drafcik!!!</div> </div>
+        </div>
+    </div>
+        
+    <div>4LIFE
+        <div class="secondary-color-box">
+            <div>~ Vanilla Sky ⭐<div>Zycie nie byloby takie slodkie bez odrobiny gorzkosci.</div> </div>
+            <div>~ Matematyczka LO<div>Im mniej wiesz tym lepiej spisz</div> </div>
+            <div>~ Mark Twain<div>it aint what you dont know that gets you into trouble. its what you know for sure that just aint so.</div> </div>
+            <div>~ Kacper Pitala ⭐<div>Przechodzenie (np. przez drzwi) jest widocznie czyms znaczacym dla naszego mozgu. (czyt. zamyka rozdzialy, pomaga mozgowi ukladac rzeczy) <br>[...] A co ciekawe wystarczy sobie wyobrazic przechodzenie przez drzwi, zeby wychowac ten efekt...<br><a href="https://www.youtube.com/watch?v=bDHfW9bYJCY" target="_blank">link</a></div> </div>
+            <div>~ Horace<div style="font-style:italic ;">Carpe diem</div> </div>
+            <div>~ Terencjusz<div style="font-style:italic ;">Nic co ludzkie nie jest mi obce.</div> </div>
+            <div>~ flacamun3ca<div>Everyone needs to stop talking.</div> </div>
+            <div>~ The Kid Laroi<div>Don't make permanent decisions based on temporary feeling.</div> </div>
+            <div>~ Droga Zen<div>Zarówno w życiu, jak i w sztuce kultury Dalekiego Wschodu, najwyżej sobie cenią spontaniczność, czy też naturalność. Jest ona nieomylną oznaką szczerości, cechującą działanie, które nie jest wystudiowane, ani wymuszone.</div> </div>
+            <div>~Droga Zen 2<div>Kiedy chodzisz, po prostu chodz. Kiedy siedzisz po prostu siedz. Najwazniejsze, zebys sie nie kiwal na boki. </div> </div>
+            <div>~ Droga Zen 3<div>Ostatecznie jedynym wyjsciem z paralizujacych drgawek jest rzucenie sie w wir dzialania bez ogladania sie na konsekwencje.</div></div>
+            <div>~Setty<div>kazdy powinien byc swoim najwiekszym fanem</div> </div>
+            <div>~ Roddy Ricch<div>And i cannot sell my soul.</div> </div>
+            <div>~ Tamara Lepicka<div>Niczego, co robilam, nigdy nie robilam tak, jak inni. Zawsze robilem wszystko jakos inaczej. Chcialam robic, to co chce.</div> </div>
+            <div>~ Kolo emocji<div>Ekstaza, Zachwyt, Przerazenie, Zdumienie, Cierpienie, Nienawisc, Wscieklosc, Czujnosc</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Dont A2Q ⭐<div>Nie odpowiadaj ma pytanie. Zastanow sie dlaczego je ktos zadal i odpowiedz pytaniem... es</div> </div>
+            <div>Gestures ⭐<div>Gesty tez sa nieodlaczna cecha czlowieka...</div> </div>
+            <div>Addiction ⭐⭐⭐<div>Uzaleznienie wtedy, gdy robisz cos bezwarunkowo, nieswiadomie ...i dlatego nie oplaca sie w to wchodzic.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Naturalnosc<div>Zgodny ze zwyklym porzadkiem rzeczy, zrozumialy sam przez sie, szczery, niewymuszony</div> </div>
+            <div>Naturalnosc 2<div>Jak bardzo jestes podatny na zmuszanie ciebie do czegos?</div> </div>
+            <div>Fridge ⭐<div>Szczescie osiagniesz wtedy gdy za kazdym razem jak zasiadziesz do stolu zjesz to co naprawde chcesz, a nie to co znajdziesz w lodowce.</div> </div>
+            <div>Why? ⭐<div>For what? Po co? Za kazda wypowiedzia stoi jakis powod. Wyzej trzeba myslec, wyzej!</div> </div>
+            <div>Better The Best ⭐<div>Zamiast zastanawiac sie co mogles zrobic lepiej, pomysl co mozesz robic najlepiej.</div> </div>
+            <div>Running ⭐<div>Chwytaj moment, poczuj sie jak w filmie! Przekaz ludziom troche pozytywnej energii, usmiechu :D</div> </div>
+            <div>Niedosyt ⭐<div>Zostaw ten niedosyt ;) W pracy, rozmowach... bedziesz to bardziej rozpamietywal, myslal o tym wiecej.</div> </div>
+            <div>One Thread ⭐<div>Proponuje leciec na jednym watku, unikac rozwarstwiania. Multi-tasking is not included. <br>Pamietasz jak potrafiles zamyslac sie cala droge?</div> </div>
+            <div>More&more?<div>Nie ma co nabodzcowywac sie. Uciekaja informacje.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Productivity ⭐<div>Nie powinno ci zalezec na znajdywaniu sobie czasu na bycie produktywnym, a znajdywaniu produktywnosci w czasie jaki masz.</div></div>
+            <div>Acceptance ⭐<div>Pogodz sie z tym co od ciebie niezalezne. Zycie staje sie latwiejsze.</div> </div>
+            <div>Confidence<div>Trzeba byc pewny siebie. Do takich swiat nalezy.</div> </div>
+            <div>Intuition ✅ <div>Intuicja moze byc czesto zgubna...</div> </div>
+            <div>Decisions<div>Sprowadzasz wszystko do atomicznych warunkow i na podstawie swoich wartosci podejmujesz decyzje.</div> </div>
+            <div>Empathy<div>umiejetnosc rozpoznawania emocji u innych</div> </div>
+            <div>Depressed<div>If depressed => *MUZYKA*</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Me >>> World<div>Jesli myslisz ze ze swiatem jest cos nie tak to najprawdopodobniej z toba.</div> </div>
+            <div>Mysl<div>Mysl teraz </div> </div>
+            <div>No Oxygen<div>Nie dus siebie</div> </div>
+            <div>Life Talk<div>Rozmowa o zyciowych czynnosciach i problemach?? Znajdziesz cos ciekawszego...!!!</div> </div>
+            <div>Beautiful world<div>Swiat jest piekny, zmien sobie tylko soczewki, bo po co sie mamy dolowac.</div> </div>
+            <div>Na sile..<div>Nie narzucaj sie nikomu, nie trzymaj go na sile. Zostaw ten niedosyt >></div></div>
+            <div>Myslenie i czas<div>Na myslenie trzeba miec czas, a nie kazdy go ma...</div> </div>
+            <div>Rozmowa<div>Rozmowa z innym czlowiekem pokazuje jaki naprawde jestes, jakie masz myslenie. To co wpada do ucha to jedno, a to co wychodzi z ust to drugie.</div> </div>
+            <div>For fun ✅ <div>Gdyby nie wizja zarobku (pieniedzy), tworzylbym lepszy material.</div> </div>
+            <div>Kid Laugh<div>Nie smiej sie ze wszystkiego loool jaki kid</div> </div>
+            <div>Help. <div>Pomoc musi byc dlugotrwala. To, ze dasz bezdomnemu hajs i sobie pojdziesz - nie bedzie wystarczajace. Przekazujmy sobie rady, rady na dobre zycie. Skads sie bierze ten smutek. Zrozum drugiego czlowieka i podaj mu reke.</div> </div>
+            <div>Think<div>Think think think</div> </div>
+            <div>Addictions<div>A tego, unikamy. Wszystko z umiarem pamietaj.</div> </div>
+            <div>Music <div>Jesli stracisz rytm - zapodaj dobra muzyke!</div></div> 
+            <div>SinusLife<div>Tak, tak, zycie to sinusoida. Wybaw sie dobrze, bo jutro bedzie mocny kac.</div> </div>
+            <div>Filter<div>Musisz potrafic filtrowac tresci. Tu az sie roi od click-baitow...</div> </div>
+            <div>Who u are<div>Nigdy nie zapominaj kim jestes, albo kim chcesz sie stac.</div> </div>
+            <div>Tinder Easy<div>Jesli bede miec z toba 99% ratio (Spotify) umowisz sie ze mna?</div> </div>
+            <div>Digital Life<div> Ogladajac filmy nie masz czasu na wlasne myslenie, tlumisz pytania o ktore twoje cialo pyta. Wiec slow down boy i pauzuj. Zastanawiaj sie, wyciagaj wnioski itp.</div> </div>
+            <div>Coffee<div>Kawa i od razu wstaje na nogi. Ale pamietaj, tylko wtedy gdy jest ci potrzebna.</div> </div>
+            <div>Think<div>Let me think. Then do.</div> </div>
+            <div>Day n Night<div>Dzien po to zeby brac inspiracji, noc - by tworzyc.</div> </div>
+            <div>Do not judge<div>Nie osadzaj, nie szukaj wad u innych, bo... po pierwsze jest duzo czynnikow ktore moge uzasadnic jego postawe, ktorych ty zas nie pojmiesz... po drugie - lepiej spojrz na siebie ;></div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Better sentence...<div>To moglem powiedziec lepiej... ale przeciez taka sytuacja sie juz nie wydarzy, masz wymyslic uniwersalny sposob jak unikac bledow, a nie badac pojedyncze...</div> </div>
+            <div>Stres<div>Nie skupiasz sie na tym nad czym powinienes, a o tym co ludzie o tobie pomysla. Mozg wtedy nie potrafi w pelni funkcjonowac, i wychodza jakies dziwne sklejki slowne..., nie masz pelnej przepustowosci. Wniosek: trzeba miec "wyrombane na ludzi", badz soba.</div> </div>
+            <div>Stres 2<div>Nie mysl nad tym co bedziesz chcial powiedziec, nie dosc ze zestresujesz sie bardziej, to jeszcze bedzie to nienaturalne over all. Wszystko wyjdzie w praniu.</div> </div>
+            <div>Przygotowanie<=>Stres<div>Pelen spontan, bo inaczej to nienaturalne wszystko, gadasz wtedy jak robot i sie stresujesz. Pokaz ze ci niezalezy, bo inaczej ktos powie ze jestes ego top i liczysz na cos wiecej. Czasem chcesz dobrze wypasc, ale czy musisz?</div> </div>
+            <div>Nienaturalnosc wsrod znajomych<div>Czemu nie jestes soba wsrod znajomych? Im dalej tak udajesz tym bedzie gorzej. Nie takiego cie poznali, wiec masz sie inaczej zachowywac? Sredniawa, masz byc soba 24/7</div> </div>
+            <div>Zawsze na nie!<div>Dlaczego zawsze sie sprzeciwiasz? To wynika z mojej natury. Jedna osoba ma pewna racje, o ktorej nie mam zdania, ale czuje ze moze byc w bledzie, wiec... chce sklonic druga osobe do myslenia, przejscie do fundamentalnych wartosci, i obalenia lub potwierdzenia tezy. </div> </div>
+            <div>Przyjaciele<div>nie wypieraj sie swoich znajomych, oni cie uksztltowali, ale nie udawaj ze wszystko jest ok, kazdy chce sie rozwijac jesli sie od nich oddalisz to nie wypiraj sie ich, a oni nie powinni sie wypirac ciebie, powinniscie sie wspierac.</div> </div>
+        </div>
+        
+    </div>
+
+    <div>4WORLD
+        <div class="secondary-color-box">
+            <div>~ Radiohead<div>Everything in its right place</div> </div>
+            <div>~ Trump<div>'I Love the Poorly Educated'</div></div>
+            <div>~ Pajecza Glowa<div>[Dylemat eksperymentow w zamian za lepsze jutro.]</div> </div>
+            <div>~ Wyscig z czasem<div>Wielu musi umrzeć, by garstka mogła żyć wiecznie.</div> </div>
+            <div>~ Masny<div>(o wykresie inteligencji)<br> Zdecydowana zgoda co do rosnących skrajności. <br>[...] taki efekt w państwach rozwiniętych jest conajmniej niepokojący.</div> </div>  
+            <div>~ CzarekAbstr ⭐<div>W psychologii istnieje cos takiego, ze jak komus pomozesz to z biegiem lat ty myslisz ze mu pomogles bardziej, niz w rzeczywistosci, a ona - ze ta pomoc byla mniejsza niz w rzeczywistosci.</div> </div>
+            <div>~ PasutAbstr <div>W psycholigii jest tez cos takiego ze jak czemus poswiecasz duzo czasu to to cos wydaje sie lepsze mimo ze takie nie jest w rzeczywistosci</div> </div>
+            <div>~ Streisand Effect<div>Zjawisko internetowe, w ktorym na skutek prób cenzurowania informacji dochodzi do ich nagłośnienia. (Dom Streisand)</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>~ Bill Gates ⭐<div>Jesli urodziles sie biedny to nie twoj blad. Twoim bledem bedzie jesli biedny umrzesz</div> </div>
+            <div>~ Sokrates ⭐<div>Jesli bogaty czlowiek jest dumny ze swojego bogactwa, nie nalezy go chwalic dokoki nie wiadomo jak je wykorzystuje</div> </div>
+            <div>~ Ronald Reagen ⭐<div>Pieniadze nie kupia ci szczescia, ale z pewnoscia zapewnia ci ciekawsze wspomnienia</div> </div>
+            <div>~ Steve Jobs ⭐<div>Nie rzeczy cenie najbardziej w zyciu, zawsze bylo dla mnie jasne, ze cenniejszy w zyciu jest czas. </div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>SZTUKA ⭐<div>Sztuka to nie sa jakies tam bazgroly na kartce, to logicznie przemyslane ruchy na wzor bazgrol</div> </div>
+            <div>EVERYONE ⭐<div>Kazdy jest w czyms dobry.</div> </div>
+            <div>Intelligence ⭐⭐<div>Zdolność rozumienia, uczenia się oraz wykorzystywania posiadanej wiedzy i umiejętności w różnych sytuacjach.</div> </div>
+            <div>Multiple Intelligences⭐<div><b>matematyczna</b> , <b>językowa</b>, przyrodnicza, <b>muzyczna</b>, <b>przestrzenna</b>, cielesno-kinestetyczna, <b>interpersonalna</b>, <b>intrapersonalna</b></div> </div>
+            <div>EQ ⭐<div>Inteligencja emocjonalna, wedlug Masnego, cos znacznie wazniejszego niz IQ.</div> </div>
+            <div>IQ<div>Wspolczynnik IQ zalezy od wieku zycia. (btw nie stawiaj iq jakby to bylo cos najwazniejszego, sortowanie tak ludzi jest badziewne i slabe)</div> </div>
+            <div>Sort People?<div>Sortowanie ludzi po jakims wyznaczniku? Ale po co? IQ,EQ,Naturalnosc? </div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Travels ⭐<div>No matter where or why you travel, there is always something wonderfully new to be found</div> </div>
+            <div>26.RICHEST<div>26. najbogatszych ludzi na swicie = 3.8 MLD najbiedniejszych ;;....;.l.l</div> </div>
+            <div>VAK model<div>3 typy uczniów: wzrokowiec, słuchowiec, kinestetyk.</div> </div>
+            <div>Defualt people ⭐<div>Ludzie wygladaja jakby byli zaprogramowani. gdyby zastapic ich komputerami, nie poszloby ich odroznic. chodza normalnie, rozmawiaja normalnie, ahh troche nuda.</div> </div>
+            <div>50 yo<div>Im on my 50s. Look at this: 10*sqrt(age). Thats how we should count age :%</div> </div>
+            <div>20% brain<div>Brain requires 20% body energy.</div> </div>
+            <div>TV&...<div>Telewizja jak i inne odmozdza.!.. zachowanie pasywne, ktore nie wymaga stymulacji poznawczej.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Studia<div>Jezeli uczysz sie niechetnie to to nie zostanie w pamieci na dlugo</div> </div>
+            <div>Dzien i noc<div>Dzien jest na nabranie inspiracji, noc na tworzenie.</div> </div>
+            <div>Art vs Photo<div>Sztuka to uchwycenie momentu, emocji, samopoczucia, pamiatka. Zdjecia tez robia podobny efekt ale nie uchwyca detali i nie sa tak osobliwe.</div> </div>
+            <div>Natural VS Perfect<div>Naturalnosc a nie perfekcjonizm (muzyka). Nie trzeba wszystkiego do bitu. Taktujesz jak czujesz.</div> </div>
+            <div>Numbers<div>Czlowiek nie umie w liczby, 10 000, 100 000 nawet nie zobaczysz roznicy, nie wiesz jakie to duze.</div> </div>
+            <div>Realy like it!<div>Jak sie komus chce - to widac ess, mamy te instynkty. Nie robi tego dla hajsu, a z czystej zajawki.</div> </div>
+            <div>Czlowiek sukcesu<div>Widzi mozliwosci nie ograniczenia.</div> </div>
+            <div>No Creativity<div>Brak kreatywnego myslenia jest skutkiem braku wolnego czasu i przepracowania. Potrzebujemy dobrych wrazen zeby pobudzic wyobraznie. Szanujmy sie nawzajem, bo kreatywny swiat to swiat do przodu.</div> </div>
+            <div>Sad Songs<div>Te wszystkie smutne piosenki sa wynikiem smutnej duszy :(</div> </div>
+            <div>Beauty<div>Jestes ladny/ladna, gdy w pewnym przedziale podobasz sie wiekszosci. Notacja pieknosc 100/1000 mowilo by samo za siebie.</div> </div>
+            <div>Painless<div>World should be painless</div> </div>
+            <div>Rozglos<div>[Konferencja Apple] Niech oni komentuja, smieja sie... Ty masz zachowac spokoj i robic swoje. Nie patrz sie na innych to strata czasu.</div> </div>
+            <div>Better not have<div>Nie miej czegos a od razu wyobrazenia na temat tej rzeczy staja sie perfekcyjne, nierealnie perfekcyjne.</div> </div>
+            <div>Life Path<div>Nie wazne jaka droga idziesz, wazne ze idziesz essa</div> </div>
+            <div>Mlody Rick!<div>Dlaczego powstaje i do czego sluzy poezja. Walka z wnetrzem i cialem.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Artists<div>Wszystko co wypuszczaja prawdziwi artysci, pochadza z ich wnetrza, nie jest przeklamane, nie moze byc. Inaczej jestes niesluchalny, nieszczery, nie do zaufania.</div> </div>
+            <div>Sad artists?<div>Wesesli artysci,smutni... ale to wcale nie oznacza ze maja smutne czy wesole zycie at all. Po prostu lubia go opisywac i dzielic sie z innymi.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Phisics ⭐<div>Wszechswiat i Antywszechswiat - cofanie w czasie! Wielki wybuch na 2 strony.</div> </div>
+        </div>
+    </div>
+    <div>BIBLE
+        <div class="secondary-color-box">
+            <div>~ 7 Deadly Sins<div>Pycha, chciwosc, nieczystosc, nieumiarkowanie w jedzeniu i piciu, gniew, lenistwo (, zazdrosc). YingYang</div> </div>
+            <div>~ Pokora ⭐⭐<div>[Syr 3] Nie szukaj tego co dla ciebie zbyt ciezkie [...] Nie trudz sie niepotrzebnie nad tym co sily twoje przekracza [...] Wielu bowiem domysly ich w blad wprowadzily i o zle przypuszczenia potknely sie ich rozumy.</div> </div>
+        </div>
+        <div class="secondary-color-box">
+            <div>Values ⭐<div>Wyrob sobie wartosci i postepuj zgodnie z nimi, ale musza miec one silne podloze. Edukuj niedoedukowanych, daj im namiastke. Nie narzucaj swoich racji, pozwol zadecydowac jak kto sie czuje.</div> </div>
+            <div>Zazdrosc<div>Nie ma co zazdroscic, ludzie znalezli sie w swojej sytuacji z przypadku. Nia masz na to wplywu, nie zalamuj sie, bo wszystko jest tak losowe, ze sam sie za chwile zaskoczysz.</div> </div>
+            <div>Aborcja<div>Zyciem nie nalezy sie bawic, nie odkrylismy co to, wiec sprobujmy tego strzec. [...]</div>  </div> 
+            <div>Earth Life<div>Zycie ziemskie to pikus w porownaniu do wszechswiata. Za twojego czasu sobie nabroisz, a skutki beda odczuwac inne pokolenia. Myslenie samolubne? Czy na pewno tak chcesz?</div> </div>
+            <div>Help. <div>Pomoc musi byc dlugotrwala. To, ze dasz bezdomnemu hajs i sobie pojdziesz - nie bedzie wystarczajace. Przekazujmy sobie rady, rady na dobre zycie. Skads sie bierze ten smutek. Zrozum drugiego czlowieka i podaj mu reke.</div> </div>
+            <div>Do Care ⭐<div> Troszczmy sie o siebie nawzajem, bo na tej ziemi sobie jeszcze troche pozyjemy razem.</div></div>
+        </div>
+    </div>
+    </div>
+
+    <div id="ints" class="primary-color secondary-color-box">
+        CIEKAWE PYTANIA:
+        <div>Dlaczego poruszamy sie systemie 10-kowym?</div>
+        <div>Dlaczego tanie auta nie sa ladne?</div>
+        <div>Dlaczego sztuka jest tak droga?</div>
+        <div>Dlaczego jest coraz mniej innowacyjnych dzialan?</div>
+    </div>
+
+    <div id="ints2" class="primary-color secondary-color-box">
+        MY PREDICTIONS:
+        <div>Apple EarNoPods - stymulacja sluchowa (31.01)</div>
+        <div>iOS upgrade - Rec to Text - just drag&drop (31.01)</div>
+        <div>Dalle do grafiki 3D (31.01)</div>
+    </div>
+    
+    <div id="imgs" class="band primary-color noscroll">
+        <img src="sub-thoughts/kidlaroi.jpg" style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/setty.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/ohdelaval.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/apple health.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/musk.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/bill.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+        <img src="sub-thoughts/screentime.jpg"style="max-height: 150px;border-radius: 10px;margin: 10px;">
+    </div>
+    
+</body>
+</html>

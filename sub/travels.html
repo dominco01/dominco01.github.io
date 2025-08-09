@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../global-styles/style.css">
+    <link rel="stylesheet" href="styles/travels.css">
+    <script src="scripts/random.js"></script>
+    <script>
+        function miniView()
+        {
+            let childs = document.body.children;
+
+            let good;
+            let random = new Random();
+            do good = random.get(childs.length-1);
+            while( childs[good].innerHTML == "" );
+
+            for(let i =0;i<good;i++) {  childs[0].remove(); }
+            while(childs.length>1) {  childs[1].remove(); }
+        }
+
+        function load()
+        {
+            if(frameElement.getAttribute("miniView")) miniView();
+        }
+    </script>
+</head>
+<body onload="load()">
+
+<div class="primary-color">
+    <div id="title">🏝️ SUMMER HOLIDAYS</div>
+
+    <div id="head">WITH FAMILY 👪 </div>
+    <div id="body">
+        <div>2009 - Italy <div id="more">[safe, center pool, sudoku gaming]</div><div></div> </div>
+        <div>...</div>
+        <div>2012 - Corsica <div id="more"> [trampoline pool]</div>   <div>Balcony performance</div> </div>
+        <div>2013 - Portugal <div id="more"> [living /w Marysia Filip]</div> <div>Harry Potter + Horror</div> </div>
+        <div>2014 - Italy <div id="more"> - Toscana</div> <div>Potracona Milosc + Basen</div> </div>
+        <div>2015 - France <div id="more"> - Bastide Des Bertrands</div><div>Crazy Friends + Versus</div> </div>
+        <div>2016 - Spain <div>Noc Tajemnic</div> </div>
+        <div>2017 - Poland <div>The Circle</div></div>
+        <div>2018 - Greece <div id="more"> [Attica wildfires :/]</div> <div> Miss Agent</div></div>
+        <div>2019 - Spain <div id="more"> - San Sadurnino</div> <div>BellaCiao</div></div>
+        <div>2020 - Croatia <div id="more"> - Novalja (near Pag) - BaraBay [rocks jumping]</div><div></div> </div>
+        <div>2021 - Poland <div id="more"> - Mechelinki (near Gdynia) [corona, kite]</div><div></div> </div>
+        <div>2022 - Italy <div id="more"> - Tropea - Infinity Resort</div><div></div> </div>
+    </div>
+
+    <div id="head">WITH FRIENDS 👫</div>
+    <div id="body">
+        <div>2021.? - WARSAW<div>Lobstir</div> </div>
+        <div>2022.07 - BERLIN<div>Laroi xd</div> </div>
+        <div>2022.08 - GDANSK <div>CRC+BB</div> </div>
+    </div>
+</div>
+
+<div class="primary-color">
+    <div id="title">⛷️ WINTER HOLIDAYS</div>
+    <div id="body">
+        <div>2016 - SLOVAKIA<div>FAMILY</div> </div>
+        <div>2020 - SLOVAKIA<div>FRIENDS</div> </div>
+        <div>2020 - SLOVAKIA<div>FAMILY</div> </div>
+    </div>
+</div>
+
+<div class="primary-color">
+    <div id="title">🏰 OTHER TRIPS</div>
+    <div id="body">
+        <div>20??.? - BUDAPEST <div>School</div> </div>
+        <div>2022.? - WARSAW <div>Roberto</div> </div>
+    </div>
+</div>
+
+</body>
+</html>

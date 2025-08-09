@@ -1,0 +1,51 @@
+body{display: flex;}
+body>*
+{
+    margin:10px;
+}
+
+body>*
+{
+    padding: 20px;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+body>*>*>*
+{
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+   
+}
+#nicks>div
+{
+    display: flex;
+    justify-content: space-between;
+}
+#nicks>div>div
+{
+    margin-left: 20px;
+    opacity: 0.6;
+}
+
+#chapters>div
+{
+    display: flex;
+    padding: 0;
+}
+
+#chapters>div>div
+{
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body{
+        flex-direction: column;
+    }
+
+}

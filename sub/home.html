@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../global-styles/style.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <script src="scripts/random.js"></script>
+    <script>
+        function load()
+        {
+            let r = new Random();
+            document.getElementById("seed").innerHTML = r.getRandom();
+        }
+        </script>
+</head>
+<body style="margin: 0;padding:0;" onload="load();">
+    <div  class="primary-color" style="border-radius: 20px;padding:20px;margin:20px;text-align: center;">👩🏻 HEY!</div>
+    <div class="primary-color" style="border-radius: 20px;padding:20px;margin:20px">RANDOM NUMBER FOR TODAY: <b id="seed">___</b></div>    
+    <div id="box" >
+        <div>TO DO
+            <iframe src="todo.html" height="500px" width="100%" frameBorder="0" miniView="true" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'></iframe>
+        </div>
+
+        <div>THOUGHTS
+            <iframe src="thoughts.html" height="500px" width="100%" frameBorder="0" miniView="true" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'></iframe>
+        </div>
+        <div>BUTTERFLY
+            <iframe src="butterfly.html" height="500px" width="100%" frameBorder="0" miniView="true" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'></iframe>
+        </div>
+        <div>PRETTY WORDS
+            <iframe src="prettywords.html" height="500px" width="100%" frameBorder="0" miniView="true" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'></iframe>
+        </div>
+        <div>TRAVELS
+            <iframe src="travels.html" height="500px" width="100%" frameBorder="0" miniView="true" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'></iframe>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessence</title>
+    <meta name="theme-color" content="#1C8A82" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="icon.ico"/>
+    <link rel="apple-touch-icon-precomposed" href="icon.ico" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="global-styles/style.css">
+    <link rel="stylesheet" href="global-styles/grabbable.css">
+    <link rel="stylesheet" href="global-styles/blurry.css">
+    <script>
+        function auth()
+        {       
+            if(!localStorage.getItem("role"))
+            {
+                //Pracodawca, Family, Close Friend
+                let code = prompt("Type the invitation code");
+                if(code=="tajnehaslo" ) localStorage.setItem("role", "me");
+                else localStorage.setItem("role", "anon");
+            }
+
+            if(localStorage.getItem("role")=="me") removeClass("access");
+        }
+
+        function load()
+        {
+            let path = window.location.search.substr(1);
+            if(path)
+            {
+                document.getElementById(path).classList += "invert-color";
+                document.getElementById(path).children[0].style.backgroundColor="transparent";
+                
+                document.getElementById('content').src ="sub/"+ path +".html";
+
+                let a = document.getElementById("about-content");
+                switch(path)
+                {
+                    case "itsme": a.innerText = "~ fakty o mnie";break;
+                    case "interests": a.innerText = "~ mega fun i mega emocje";break;
+                    case "butterfly": a.innerText = "~ motylki w brzuchu";break;
+                    case "thoughts": a.innerText = "~ cytaty i tego ten";break;
+                    case "prettywords": a.innerText = "~ slowniczek D";break;
+                    case "memories": a.innerText = "~ miejsce wspomnien";break;
+                    case "travels": a.innerText = "~ podroze male i duze";break;
+                    case "todo": a.innerText = "~ powoli do przodu";break;
+                    case "workingon": a.innerText = "~ grube sprawy";break;
+                    case "planb":a.innerText ="~ moze sie nadam";break;
+                    default:a.innerText = "~ extension to the D brain"; break;
+                }
+            }
+
+            if(path=="home")
+            {
+                document.getElementById("atitle-before").innerText = "THE";
+                document.getElementById("atitle-after").innerText = "PLACE";
+            }
+            else if(path=="thoughts")
+            {
+                document.getElementById("atitle-after").innerText = "THOUGHTS";
+            }
+
+
+            //click
+            document.getElementById("home").addEventListener("click",function (){nav("home")});
+
+            let childs = document.getElementById("abar").children;
+            for( i=0; i< childs.length; i++ )
+            {
+                let child = childs[i];
+                if(child.id) child.addEventListener("click",function (){nav(child.id)});
+            }
+
+            //colors
+            let ch = document.getElementById("abar").children;
+            for(let i =0;i<ch.length;i++)
+            {
+                if(ch[i].tagName=="DIV")
+                ch[i].children[0].className="secondary-color";
+            };
+        
+        }
+        
+        function nav(name) { window.location ="index.html?"+name; }        
+        function removeClass(name)
+        {
+            var slides = document.getElementsByClassName(name);
+            for (var i = 0; i < slides.length; i++) slides[i].classList.remove(name);
+        }
+    </script>
+</head>
+<body onload="auth();load();" class="blurry-box main-color" >
+   <div id="atitle" >
+        <div class="grabbable font-color" id="home" >
+            <b id="atitle-before"></b><b style="font-size: 70px;">D</b><b id="atitle-after">ESSENCE</b><sup>™️</sup>
+        </div>
+    </div>
+    <div id="abar" class="grabbable-box primary-color-box invert-color-box-hover">
+        <div id="itsme">
+            <div>👦🏽</div>
+            <div>IT'S ME</div>
+        </div>
+
+        <span></span>
+
+        <div id="interests">
+            <div>💖</div>
+            <div>INTERESTS</div>
+        </div>
+
+        <div id="butterfly">
+            <div>🦋</div>
+            <div>BUTTERFLY</div>
+        </div>
+
+        <div id="prettywords">
+            <div>🔖</div>
+            <div>PRETTY WORDS</div>
+        </div>
+
+        <span></span>
+
+        <div id="travels">
+            <div>✈️</div>
+            <div>TRAVELS</div>
+        </div>
+
+        <div id="memories">
+            <div>🥀</div>
+            <div>MEMORIES</div>
+        </div>
+
+        <span></span>
+
+        <div id="thoughts">
+            <div>💭</div>
+            <div>THOUGHTS</div>
+        </div>
+        
+        <span></span>
+        <div id="todo">
+            <div>📝</div>
+            <div>TO DO.</div>
+        </div>
+
+        <div id="planb">
+            <div>🅱</div>
+            <div>PLAN B</div>
+        </div>
+
+        <div id="workingon">
+            <div>✨</div>
+            <div class="tooltip">WORKING ON!</div>
+        </div>
+
+    </div>
+    
+    <div class="access">
+        <div id="about-content" class="font-color"></div>
+        <iframe id="content" src="" scrolling="no" style="height:4000px;width:100%;border:none;overflow:hidden;" onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight)+"px";}(this));'frameborder="0" ></iframe>
+    </div>
+   
+</body>
+</html>

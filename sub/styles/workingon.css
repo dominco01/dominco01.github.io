@@ -1,0 +1,45 @@
+body{padding: 10px;}
+#bigbox{
+    display: flex;
+    justify-content:space-evenly;
+   
+}
+#bigbox>*{
+    flex: 1 1 0;
+    width: 0;
+}
+
+#bigbox>*>div
+{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+
+    padding-right: 10px;
+    border-radius: 10px;
+    width:fit-content;
+    margin-bottom: 10px;
+
+}
+
+#bigbox>*>div>:nth-child(1)
+{
+    font-weight: bold;
+    border-radius: 10px;
+    
+    padding: 10px;
+    margin-right: 20px;
+}
+
+#bigbox>*>div>:nth-child(2)
+{
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    pre{display: none;}
+    #bigbox>*>div{font-size: 15px;}
+    #bigbox>*>div>:nth-child(2){font-size: 20px;}
+}

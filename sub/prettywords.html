@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../global-styles/style.css">
+    <link rel="stylesheet" href="styles/prettywords.css">
+    <script src="scripts/random.js"></script>
+    <script>
+        function miniView()
+        {
+            document.getElementById("box").style.justifyContent="center";
+            
+            let childs = document.getElementById("box").children;
+
+            let good;
+            let random = new Random();
+            do good = random.get(childs.length-1);
+            while( childs[good].innerHTML == "" );
+
+            for(let i =0;i<good;i++) {  childs[0].remove(); }
+            while(childs.length>1) {  childs[1].remove(); }
+        }
+
+        function load()
+        {
+            if(frameElement.getAttribute("miniView")) miniView();
+        }
+    </script>
+</head>
+<body onload="load()" style="padding: 20px;">
+    <div id="box" class="primary-color secondary-color-box">
+        <div>Boota Fag</div>
+        <div>Diphn</div>
+        <div>Be my guest!</div>
+        <div>Svimmi 🏄</div>
+        <div>Infinity</div>
+        <div>Bax Bunny 👯‍♀️</div>
+        <div>Mindo</div>
+        <div>PickUp! 💛</div>
+        <div>Fugazzi</div>
+        <div>^-**//_#</div>
+        <div>Sigma</div>
+        <div>Italic Boldman</div>
+        <div>Dixie [DXC]</div>
+        <div>Climax 🔰</div>
+        <div>Miiko</div>
+        <div>WiGiGriGi</div>
+        <div>Kurde burde</div>
+        <div>Music shake</div>
+        <div>Gitka skitka</div>
+        <div>One Thread Motion</div>
+        <div>sophisticated</div>
+        <div>pA Moojie</div>
+        <div>Spoti Noti</div>
+        <div>"Z pamietnika Dominika"</div>
+        <div>Tapkie</div>
+        <div>Daily Maily 📧</div>
+        <div>sum type of way</div>
+        <div>Spontan tripenio</div>
+        <div>🪟 Kurde bellé 🪟</div>
+        <div>MindSET ⚙️</div>
+        <div>re-finessed</div>
+        <div>Always ND</div>
+        <div>Movee</div>
+    </div>
+</body>
+</html>

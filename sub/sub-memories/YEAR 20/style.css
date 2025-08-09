@@ -1,0 +1,47 @@
+body
+{
+    margin: 0px;
+    padding: 20px;
+    background-color: rgb(138, 139, 226);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+#calendar
+{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 170px;
+    font-weight: bold;
+    letter-spacing: -10px;
+}
+
+#calendar>div
+{
+   
+    font-weight: bold;
+  padding-right: 25px;
+  margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    height:140px;
+    min-width: 130px;
+}
+
+#calendar>div>:first-child
+{
+    font-size: 30px;
+    position: absolute;
+    margin-top: 200px;
+}
+
+#calendar>div>div
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow:none;
+    color: white;
+    font-size: 50px;
+    letter-spacing: 0px;
+    min-width: 130px;
+    height:140px;
+    background-size:cover;
+}
